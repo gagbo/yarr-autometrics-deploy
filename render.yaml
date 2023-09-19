@@ -10,6 +10,6 @@ services:
     envVars:
       - key: YARR_OTLP_COLLECTOR
         sync: false     # This value is set from Render dashboard
-    disk:
-      name: yarr
-      mountPath: /data
+    # disk:
+    #   name: yarr
+    #   mountPath: /data
