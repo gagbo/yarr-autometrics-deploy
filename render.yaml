@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name:
+    region: frankfurt
+    plan: free
+    runtime: docker
+    repo: https://github.com/gagbo/yarr
+    branch: autometrics
+    dockerCommand: /usr/local/bin/yarr -addr 0.0.0.0:$PORT -db /data/yarr.db
+    envVars:
+      - key: YARR_OTLP_COLLECTOR
+        sync: false     # This value is set from Render dashboard
+    disk:
+      name: yarr
+      mountPath: /data
