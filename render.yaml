@@ -1,6 +1,6 @@
 services:
   - type: web
-    name:
+    name: yarr
     region: frankfurt
     plan: free
     runtime: docker
