@@ -6,6 +6,9 @@ services:
     runtime: docker
     repo: https://github.com/gagbo/yarr-autometrics-deploy
     branch: main
+    buildFilter:
+      paths:
+      - monitoring/prometheus/**/*
     dockerfilePath: ./monitoring/prometheus/Dockerfile
     dockerContext: ./monitoring/prometheus
     dockerCommand: /bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus --web.console.libraries=/usr/share/prometheus/console_libraries --web.console.templates=/usr/share/prometheus/consoles --web.enable-remote-write-receiver
@@ -30,6 +33,9 @@ services:
     runtime: docker
     repo: https://github.com/gagbo/yarr-autometrics-deploy
     branch: main
+    buildFilter:
+      paths:
+      - monitoring/otelcol/**/*
     dockerfilePath: ./monitoring/otelcol/Dockerfile
     dockerContext: ./monitoring/otelcol
     dockerCommand: /otelcol --config=/etc/otelcol/config.yaml
